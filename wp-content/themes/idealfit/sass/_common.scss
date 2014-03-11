@@ -48,7 +48,7 @@ img {
   width: auto;
 }
 a {
-  color: $red;
+  color: red;
 }
 *, *:after, *:before { @include border-box; }
 .no-boxsizing, .no-boxsizing *, .no-boxsizing *:after, .no-boxsizing *:before { @include no-border-box; }

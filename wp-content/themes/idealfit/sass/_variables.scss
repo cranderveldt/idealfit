@@ -15,6 +15,7 @@ $h6-size: 14;
 $h7-size: 12;
 
 $sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$title: sans-serif;
 
 @mixin round($radius) {
   -webkit-border-radius: $radius;
