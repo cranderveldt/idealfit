@@ -27,10 +27,11 @@ app.controller('Main',['$scope','$http', function ($scope) {
     for (var t in $scope.user.tags) {
       totalTagValue = totalTagValue + $scope.user.tags[t].weight;
     }
-    $scope.user.total = totalTagValue;
+    $scope.$apply(function() {
+      $scope.user.total = totalTagValue;
+    });
   }
   $scope.saveUser = function() {
-    $scope.calculateTotal();
     localStorage.setItem('idealfit', JSON.stringify($scope.user));
   };
   $scope.remove = function(array, index){
@@ -54,6 +55,7 @@ app.directive('ifAddTags', function () {
           }
         });
         jQuery('#tag-input').val('');
+        $scope.calculateTotal();
         $scope.saveUser();
       });
     }
@@ -71,6 +73,7 @@ app.directive('ifSetWeight', function () {
         $scope.$apply(function() {
           $scope.user.tags[$this.data('tag-index')].weight = parseInt($this.text(), 10);
         });
+        $scope.calculateTotal();
         $scope.saveUser();
       });
     }
@@ -103,10 +106,7 @@ app.directive('ifFindMatches', function () {
             }
             if (matchBool) {
               matchObj.matchedTags.push($scope.companies[c].tags[ct]);
-              var value = $scope.user.tags[ut].weight;
-              if (value > $scope.companies[c].tags[ct].weight) {
-                value = $scope.companies[c].tags[ct].weight
-              }
+              var value = Math.min($scope.user.tags[ut].weight, $scope.companies[c].tags[ct].weight);
               matchObj.value = matchObj.value + value;
             } else {
               matchObj.unmatchedTags.push($scope.companies[c].tags[ct]);
