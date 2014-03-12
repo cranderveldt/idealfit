@@ -10,4 +10,36 @@ body {
   background: #FFF;
   padding: 30px;
 }
-// add tags
+.tags-list {
+  margin: 0 -5px 20px;
+  .tag {
+    @include font-size(14, 1);
+    @include inline-block(middle);
+    margin: 5px;
+    background: #8294a6;
+    color: #FFF;
+    padding: 3px 5px;
+    @include round(2px);
+    font-weight: bold;
+    .weights {
+      @include inline-block(middle);
+      margin: -3px 0;
+      .weight {
+        font-weight: normal;
+        cursor: pointer;
+        @include inline-block(middle);
+        background: #5f6f7f;
+        padding: 3px 4px;
+        margin-right: -4px;
+        &.active {
+          font-weight: bold;
+          background: #48525d;
+        }
+        &:last-child {
+          @include round(0 2px 2px 0);
+
+        }
+      }
+    }
+  }
+}
