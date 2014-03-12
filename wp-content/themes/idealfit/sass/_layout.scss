@@ -1,0 +1,13 @@
+#header, #footer, #comments, #sidebar, .page > header {
+  display: none;
+}
+body {
+  background: #DDD;
+}
+#container {
+  @include max-width(600px);
+  margin: 30px auto 0;
+  background: #FFF;
+  padding: 30px;
+}
+// add tags

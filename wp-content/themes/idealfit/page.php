@@ -8,6 +8,20 @@
 <section class="entry-content">
 <?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
 <?php the_content(); ?>
+
+<div class="tags">
+  <div class="form-group">
+    <label for="">Enter tags separated by comma</label>
+    <textarea type="text" class="form-control" id="tag-input"></textarea>
+  </div>
+  <div class="form-group">
+    <button type="button" class="btn btn-primary" if-add-tags>Add Tags</button>
+  </div>
+  <div class="tags-list">
+    <span class="tag" ng-repeat="tag in user.tags">{{tag.name}}</span>
+  </div>
+</div>
+
 <div class="entry-links"><?php wp_link_pages(); ?></div>
 </section>
 </article>

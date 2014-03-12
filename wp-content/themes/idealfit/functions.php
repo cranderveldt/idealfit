@@ -1,5 +1,7 @@
 <?php
 add_action( 'after_setup_theme', 'blankslate_setup' );
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
 function blankslate_setup()
 {
 load_theme_textdomain( 'blankslate', get_template_directory() . '/languages' );
