@@ -10,6 +10,11 @@ body {
   background: #FFF;
   padding: 30px;
 }
+small {
+  @include font-size(10, 1.4);
+  margin: 0 0 15px;
+  display: block;
+}
 .tags-list {
   margin: 0 -5px 20px;
   .tag {
@@ -19,8 +24,25 @@ body {
     background: #8294a6;
     color: #FFF;
     padding: 3px 5px;
+    position: relative;
     @include round(2px);
     font-weight: bold;
+    .remove {
+      color: red;
+      background: #FFF;
+      @include round(8px);
+      @include font-size(16, 1);
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: -8px;
+      top: -8px;
+      cursor: pointer;
+      i {
+        width: 16px;
+        height: 16px;
+      }
+    }
     .weights {
       @include inline-block(middle);
       margin: -3px 0;
@@ -38,6 +60,15 @@ body {
         &:last-child {
           @include round(0 2px 2px 0);
 
+        }
+      }
+    }
+    &.unmatched {
+      background: #cfcfcf;
+      .weights .weight {
+        background: #ababab;
+        &.active {
+          background: #878787;
         }
       }
     }
