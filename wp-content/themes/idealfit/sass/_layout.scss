@@ -6,9 +6,13 @@ body {
 }
 #container {
   @include max-width(600px);
-  margin: 30px auto 0;
+  margin: 0 auto;
   background: #FFF;
-  padding: 30px;
+  padding: 15px;
+  @include above-width($mobile) {
+    padding: 30px;
+    margin-top: 30px;
+  }
 }
 small {
   @include font-size(10, 1.4);
