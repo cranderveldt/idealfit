@@ -18,7 +18,14 @@
   <div class="form-group">
     <button type="button" class="btn btn-primary" if-add-tags>Add Tags</button>
   </div>
-  <p ng-hide="user.tags.length === 0">Once you have finished entering tags, weigh how important each tag is to you. 1 is least important, 3 is most important.</p>
+  <div ng-hide="user.tags.length === 0">
+    <p>Once you have finished entering tags, weigh how important each tag is to you.</p> 
+    <ol>
+      <li>Desirable</li>
+      <li>Important</li>
+      <li>Essential</li>
+    </ol>
+  </div>
   <div class="tags-list">
     <div class="tag" ng-repeat="tag in user.tags track by $index">
       <span class="remove" ng-show="deleteMode" ng-click="remove(user.tags, $index)"><i class="fa fa-times-circle"></i></span>
@@ -40,10 +47,10 @@
 </div>
 <div class="matches">
   <div class="current">
-    <h2 ng-hide="currentMatches.length === 0">Found Matches</h2>
+    <h2 ng-hide="currentMatches.length === 0">Top 20 Matches</h2>
     <div class="match" ng-repeat="match in currentMatches track by $index">
       <h3>{{match.company.name}}</h3>
-      <h4>{{match.value}}</h4>
+      <h4>{{match.result}}</h4>
       <div class="tags-list">
         <div class="tag" ng-repeat="tag in match.matchedTags">
           <span class="name">{{tag.name}}</span>
@@ -69,7 +76,7 @@
     <h2 ng-hide="user.matches.length === 0">Saved Matches</h2>
     <div class="match" ng-repeat="match in user.matches track by $index">
       <h3>{{match.company.name}}</h3>
-      <h4>{{match.value}}</h4>
+      <h4>{{match.result}}</h4>
       <div class="tags-list">
         <div class="tag" ng-repeat="tag in match.matchedTags">
           <span class="name">{{tag.name}}</span>
