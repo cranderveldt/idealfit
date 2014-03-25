@@ -12,7 +12,7 @@
 <div class="tags">
   <div class="form-group">
     <label for="">Enter tags separated by comma. </label>
-    <small>Tags in use: fun, relaxed, hard-working, efficient, casual, professional, powerful, impactful, agile, scrum, horizontal, creative, political, balanced, meritocracy.</small>
+    <small>Tags in use: fun, relaxed, hard-working, strong leadership, autonomy, team-oriented, customer focused, efficient, casual, professional, powerful, impactful, agile, scrum, flattened, creative, political, work-life balance, meritocracy.</small>
     <textarea type="text" class="form-control" id="tag-input"></textarea>
   </div>
   <div class="form-group">
